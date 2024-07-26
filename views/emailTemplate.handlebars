@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome to Our Platform</title>
+  <title>{{subject}}</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -22,7 +22,7 @@
     }
     .header {
       text-align: center;
-      background: #098151;
+      background: #007bff;
       color: #ffffff;
       padding: 10px;
       border-radius: 8px 8px 0 0;
@@ -48,20 +48,14 @@
 <body>
   <div class="container">
     <div class="header">
-      <h1>Welcome to Our Institute, {{name}}!</h1>
+      <h1>{{subject}}</h1>
     </div>
     <div class="content">
       <p>Dear {{name}},</p>
-      <p>We're excited to have you on board as a new professor. Here are your login credentials:</p>
-      <ul>
-        <li><strong>Email:</strong> {{email}}</li>
-        <li><strong>Password:</strong> {{password}}</li>
-      </ul>
-      <p>Please change your password after logging in.</p>
-      <p>If you have any questions or need assistance, feel free to reach out to us.</p>
+      <p>{{message}}</p>
     </div>
     <div class="footer">
-      <p>Thank you for joining us!</p>
+      <p>Thank you for staying with us!</p>
       <p>Best Regards,<br>IIITDMJ App</p>
     </div>
   </div>
