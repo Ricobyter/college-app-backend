@@ -36,7 +36,7 @@ transporter.use(
 );
 
 app.post('/send-email', async (req, res) => {
-  const { name, email, password } = req.body;
+  const { name, email, password, role } = req.body;
 
   if (!email) {
     return res.status(400).json({ success: false, message: 'Email is required' });
@@ -51,6 +51,7 @@ app.post('/send-email', async (req, res) => {
       name: name,
       email: email,
       password: password,
+      role: role
     },
   };
 
@@ -99,7 +100,7 @@ app.post('/send-update-password-email', async (req, res) => {
     from: process.env.EMAIL_USER,
     to: email,
     subject: 'Password Update Notification',
-    template: 'updatePassword', // Assuming you have a template named 'updateProfile'
+    template: 'updatePassword', 
     context: {
       name: name,
       email: email,
@@ -108,10 +109,10 @@ app.post('/send-update-password-email', async (req, res) => {
 
   try {
     await transporter.sendMail(mailOptions);
-    res.status(200).json({ success: true, message: 'Profile update email sent successfully' });
+    res.status(200).json({ success: true, message: 'Password update email sent successfully' });
   } catch (error) {
     console.error('Error sending profile update email:', error.message);
-    res.status(500).json({ success: false, message: 'Failed to send profile update email' });
+    res.status(500).json({ success: false, message: 'Failed to send password update email' });
   }
 });
 
